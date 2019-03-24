@@ -15,16 +15,21 @@ public class OperatorTest {
         Random r = new Random();
         double firstOperand = r.nextDouble();
         double secondOperand = r.nextDouble();
-
+        assertEquals(secondOperand + firstOperand, Operator.ADDITION.calculate(firstOperand, secondOperand), 0);
+        assertEquals(secondOperand - firstOperand, Operator.SUBTRACTION.calculate(firstOperand, secondOperand), 0);
+        assertEquals(secondOperand * firstOperand, Operator.MULTIPLICATION.calculate(firstOperand, secondOperand), 0);
+        assertEquals(secondOperand / firstOperand, Operator.DIVISION.calculate(firstOperand, secondOperand), 0);
+        assertEquals(sqrt(secondOperand), Operator.SQUAREROOT.calculate(secondOperand, null), 0);
     }
 
     @Test(expected = CalculatorException.class)
     public void testDivideByZero() throws CalculatorException {
-
+        Operator.DIVISION.calculate(0.0, 0.0);
     }
 
     @Test(expected = CalculatorException.class)
     public void testInvalidOperations() throws CalculatorException {
-
+        Operator.UNDO.calculate(0.0, 0.0);
+        Operator.CLEAR.calculate(0.0, 0.0);
     }
 }

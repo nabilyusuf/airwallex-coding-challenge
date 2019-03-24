@@ -52,6 +52,44 @@ public enum Operator {
         }
     };
     // using map for a constant lookup cost
+    private static final Map<String, Operator> lookup = new HashMap<String, Operator>();
+
+    static {
+        for (Operator o : values()) {
+            lookup.put(o.getSymbol(), o);
+        }
+    }
+
+    private String symbol;
+    private String opposite;
+    private int operandsNumber;
+
     Operator(String symbol, String opposite, int operandsNumber) {
+        this.symbol = symbol;
+        this.opposite = opposite;
+        this.operandsNumber = operandsNumber;
+    }
+
+    public static Operator getEnum(String value) {
+        return lookup.get(value);
+    }
+
+    public abstract Double calculate(Double firstOperand, Double secondOperand) throws CalculatorException;
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public String getOpposite() {
+        return opposite;
+    }
+
+    public int getOperandsNumber() {
+        return operandsNumber;
+    }
+
+    @Override
+    public String toString() {
+        return symbol;
     }
 }

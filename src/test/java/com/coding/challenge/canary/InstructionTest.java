@@ -13,22 +13,40 @@ public class InstructionTest {
     @Test
     public void testReverseOneOperandInstruction() throws CalculatorException {
 
+        Operator mockOperator = Mockito.mock(Operator.class);
+        when(mockOperator.getOperandsNumber()).thenReturn(1);
+        when(mockOperator.getOpposite()).thenReturn("sqrt");
 
+        Random r = new Random();
+        Instruction instruction = new Instruction(mockOperator, r.nextDouble());
 
-
+        assertEquals(String.format("%s", mockOperator.getOpposite()), instruction.getReverseInstruction());
     }
 
     @Test
     public void testReverseTwoOperandInstruction() throws CalculatorException {
 
         Operator mockOperator = Mockito.mock(Operator.class);
+        when(mockOperator.getOperandsNumber()).thenReturn(2);
+        when(mockOperator.getOpposite()).thenReturn("-");
 
+        Random r = new Random();
+        double value = r.nextDouble();
+        Instruction instruction = new Instruction(mockOperator, value);
 
-        assertEquals( "1","1");
+        assertEquals(
+                String.format("%f %s %f", value, mockOperator.getOpposite(), value),
+                instruction.getReverseInstruction()
+        );
     }
 
     @Test(expected = CalculatorException.class)
     public void testInvalidOperandsNumber() throws CalculatorException {
+        Operator mockOperator = Mockito.mock(Operator.class);
+        when(mockOperator.getOperandsNumber()).thenReturn(0);
 
+        Random r = new Random();
+        Instruction instruction = new Instruction(mockOperator, r.nextDouble());
+        instruction.getReverseInstruction();
     }
 }
