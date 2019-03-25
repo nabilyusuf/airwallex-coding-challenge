@@ -1,4 +1,4 @@
-# iSelect-Coding-Challenge
+# Airwallex-Coding-Challenge
 Solution to the  Airwallex code challenge
 
 ## Table of contents:
@@ -10,7 +10,6 @@ Solution to the  Airwallex code challenge
 * [Setup](./README.md#setup)
 * [Running the app](./README.md#running-the-app)
 * [Running the tests](./README.md#running-the-tests)
-* [Considerations about the development](./README.md#considerations-about-the-development)
 
 ## Description
 
@@ -111,18 +110,24 @@ Source code, and any test code/data used in developing the solution.
 
     ```git clone git@github.com:nabilyusuf/airwallex-coding-challenge.git```
 
-3. 
-        
+3. Change to the src directory:
+
+    ```cd airwallex-coding-challenge```
+
+4. Compile:
+
+    ```mvn compile```
+
+4. Test:
+
+    ```mvn test```        
 
 And you're ready to go!
 
 ### Running the app:
+    mvn spring-boot:run    
     
-
-### Running the tests:
-
- 
-
-### Considerations about the development:
-
-* 
+###### On Docker
+     docker build --rm --force-rm -t coding/excersice .
+     
+     docker run -it coding/excersice /bin/ash
