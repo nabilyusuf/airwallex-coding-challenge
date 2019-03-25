@@ -1,4 +1,4 @@
-# iSelect-Coding-Challenge
+# Airwallex-Coding-Challenge
 Solution to the  Airwallex code challenge
 
 ## Table of contents:
@@ -117,7 +117,8 @@ Source code, and any test code/data used in developing the solution.
 And you're ready to go!
 
 ### Running the app:
-    
+    On Docker
+    docker build -f Dockerfile -t demo/codingTest .
 
 ### Running the tests:
 

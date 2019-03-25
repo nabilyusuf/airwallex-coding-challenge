@@ -3,7 +3,6 @@ package com.coding.challenge.canary;
 import java.util.HashMap;
 import java.util.Map;
 
-import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
 public enum Operator {

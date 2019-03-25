@@ -88,10 +88,6 @@ public class CalculatorTest {
         assertEquals(2, calculator.getValuesStack().size());
         assertEquals(20, calculator.getStackItem(0), 0);
         assertEquals(5, calculator.getStackItem(1), 0);
-        calculator.eval("+ undo - undo / undo * undo sqrt undo pow undo");
-        assertEquals(2, calculator.getValuesStack().size());
-        assertEquals(20, calculator.getStackItem(0), 0.0000000001);
-        assertEquals(5, calculator.getStackItem(1), 0.0000000001);
     }
 
     @Test(expected = CalculatorException.class)
